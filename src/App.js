@@ -17,11 +17,20 @@ class App extends Component {
     this.setState({ searchField: e.target.value });
   }
 
+  check2() {
+    console.log(this.state, "two");
+    const check = function () {
+      console.log(this?.state, "one");
+    };
+    check();
+  }
   render() {
     const { monster, searchField } = this.state;
     const filtered = monster.filter((mon) =>
       mon.name.toLocaleLowerCase().includes(searchField.toLocaleLowerCase())
     );
+    // this.check();
+    this.check2();
     return (
       <div className="App">
         <h1>Montser Roledex</h1>
